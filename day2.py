@@ -11,6 +11,11 @@ class Game:
         self.blue = (list(map(lambda cube: int(cube[0]), list(filter(lambda cube: cube[1] == "blue",self.values)))))
         self.red = (list(map(lambda cube: int(cube[0]), list(filter(lambda cube: cube[1] == "red",self.values)))))
         self.green = (list(map(lambda cube: int(cube[0]), list(filter(lambda cube: cube[1] == "green",self.values)))))
+
+        # find the minimum number of each color needed for the game to be valid
+        self.min_blue = max(self.blue)
+        self.min_red = max(self.red)
+        self.min_green = max(self.green)
         return
 
     # Game is considered valid if all the values of cubes in each list are lower than the specified value
@@ -29,3 +34,7 @@ valid_games = list(filter(lambda game: game.is_valid({"red":12, "green":13, "blu
 
 # print the sum of the ids of all valid games
 print(sum(game.id for game in valid_games))
+
+# part 2
+# calculate the sum of the "power" of the minimum number of cubes needed for all the games to be valid
+print(sum(list(map(lambda game: game.min_blue * game.min_red * game.min_green,games))))
