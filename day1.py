@@ -1,6 +1,6 @@
 # Part 1
 # prints the sum of the numbers created by concatinating the first and last digit of each line in the file data/day1
-print(sum(map(lambda z: int(z),list(map(lambda y: ''.join([y[i] for i in (0,-1)]),list(map(lambda line: list(filter(lambda chars: not chars.isalpha(), line.rstrip())),open("data/day1", "r").readlines())))))))
+print(sum(map(lambda z: int(z),list(map(lambda y: ''.join([y[i] for i in (0,-1)]),list(map(lambda line: list(filter(lambda chars: not chars.isalpha(), line.rstrip())),open("data/day1", "r"))))))))
 
 # Part 2
 # modiification to the first part which also parses numbers spelled out 
@@ -66,7 +66,7 @@ def last_numbers(x):
 
 
 # read all lines of the input and construct two lists of the first and last numbers in each
-lines = list(map(lambda line: line.rstrip(),open("data/day1", "r").readlines()))
+lines = list(map(lambda line: line.rstrip(),open("data/day1", "r")))
 first_numbers = list(map(first_number, lines))
 last_numbers = list(map(last_numbers, lines))
 

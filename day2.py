@@ -27,7 +27,7 @@ class Game:
 
 
 # Construct list of games from input file
-games = list(map(lambda str: Game(str), open("data/day2", "r").readlines()))
+games = list(map(lambda str: Game(str), open("data/day2", "r")))
 
 # find the sublist of games for which the number of cubes of any given color are below the maximum value
 valid_games = list(filter(lambda game: game.is_valid({"red":12, "green":13, "blue":14}), games))
